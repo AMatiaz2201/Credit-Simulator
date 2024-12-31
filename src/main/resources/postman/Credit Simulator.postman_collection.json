@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "f2d5d603-5c61-412c-92f4-ad97ed103488",
+		"name": "Credit Simulator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30988352"
+	},
+	"item": [
+		{
+			"name": "HealthCheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/credit-simulator/v1/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"credit-simulator",
+						"v1",
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Simulation com sucesso",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"loanAmount\": 5000,\r\n    \"birthDate\" : \"1997-01-01\",\r\n    \"paymentTerm\": 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/credit-simulator/v1/loan/simulation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"credit-simulator",
+						"v1",
+						"loan",
+						"simulation"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

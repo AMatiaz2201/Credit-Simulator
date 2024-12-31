@@ -3,6 +3,7 @@ package com.example.credit.simulator.interfaces.controller;
 import com.example.credit.simulator.interfaces.json.request.LoanSimulationRequest;
 import com.example.credit.simulator.interfaces.json.response.LoanSimulationResponse;
 import com.example.credit.simulator.service.LoanService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,7 @@ public class LoanSimulationController {
 
   @PostMapping
   public ResponseEntity<LoanSimulationResponse> postLoan(
-      @RequestBody() LoanSimulationRequest loanSimulatorRequest
+      @Valid @RequestBody() LoanSimulationRequest loanSimulatorRequest
   ) {
     var response = loanService.simulateLoan(loanSimulatorRequest);
     return ResponseEntity.status(200).body(response);

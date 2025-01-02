@@ -1,6 +1,7 @@
 package com.example.credit.simulator.interfaces.json.request;
 
-import jakarta.validation.constraints.NotBlank;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.Period;
 import lombok.AllArgsConstructor;
@@ -16,11 +17,11 @@ import lombok.experimental.SuperBuilder;
 public class LoanSimulationRequest {
 
 
-  @NotBlank(message = "loanAmount is required")
+  @NotNull
   private Integer loanAmount;
-  @NotBlank(message = "birthDate is required")
+  @JsonFormat(pattern="yyyy-MM-dd")
   private LocalDate birthDate;
-  @NotBlank(message = "paymentTerm is required")
+  @NotNull
   private Integer paymentTerm;
 
   public double getInterestRate() {

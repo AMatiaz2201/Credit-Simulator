@@ -1,0 +1,7 @@
+curl --location 'http://localhost:8090/credit-simulator/v1/loan/simulation' \
+--header 'Content-Type: application/json' \
+--data '{
+    "loanAmount": 5000,
+    "birthDate" : "1997-01-01",
+    "paymentTerm": 12
+}'

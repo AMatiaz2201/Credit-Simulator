@@ -1,0 +1,92 @@
+openapi: 3.0.3
+info:
+  title: Swagger API Credit Simulator - OpenAPI 3.0
+  description: |-
+    Credit Simulator
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: https://teste.swagger.io/api/v3
+tags:
+  - name: LoanSimulation
+    description: Everything about your loans
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+paths:
+  /v1/loan/simulation:
+    post:
+      tags:
+        - LoanSimulation
+      summary: Solicitar uma simulação de emprestimo
+      description: Solicitar uma simulação de emprestimo
+      operationId: postLoan
+      requestBody:
+        description: Solicitar uma simulação de emprestimo
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoanSimulationRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LoanSimulationRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LoanSimulationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoanSimulationResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LoanSimulationResponse'
+        '400':
+          description: Bad Request
+
+components:
+  schemas:
+    LoanSimulationRequest:
+      type: object
+      properties:
+        loanAmount:
+          type: number
+          format: integer
+          example: 5000
+        birthDate:
+          type: string
+          format: date
+        paymentTerm:
+          type: number
+          format: integer
+          example: 12
+      xml:
+        name: order
+    LoanSimulationResponse:
+      type: object
+      properties:
+        totalAmountPayable:
+          type: number
+          format: float
+          example: 5081.62
+        monthlyInstallment:
+          type: number
+          format: float
+          example: 423.47
+        totalInterest:
+          type: number
+          format: float
+          example: 81.62
+      xml:
+        name: order

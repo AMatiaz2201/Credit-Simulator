@@ -42,3 +42,14 @@ spring:
   sql:
     init:
       platform: postgresql
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: abnersmatias@gmail.com
+    password: sbha bnsl psca jjeq
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

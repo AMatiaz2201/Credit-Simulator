@@ -2,13 +2,18 @@ package com.example.credit.simulator.service.impl;
 
 import com.example.credit.simulator.interfaces.json.request.LoanSimulationRequest;
 import com.example.credit.simulator.interfaces.json.response.LoanSimulationResponse;
-import com.example.credit.simulator.service.LoanService;
+import com.example.credit.simulator.service.LoanSimulationService;
+import com.example.credit.simulator.service.MailService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class LoanServiceImpl implements LoanService {
+@RequiredArgsConstructor
+public class LoanSimulationServiceImpl implements LoanSimulationService {
+
+  private final MailService mailService;
 
   @Override
   public LoanSimulationResponse simulateLoan(LoanSimulationRequest loanSimulationRequest) {
@@ -33,6 +38,12 @@ public class LoanServiceImpl implements LoanService {
     log.info("Calculo finalizado, valor total: R${}",
         loanSimulationResponse.getTotalAmountPayable());
 
+    try {
+      mailService.senderMail("abnersmatias@gmail.com", "Teste do credit simulator",
+          loanSimulationResponse.toString());
+    } catch (Exception ignored) {
+
+    }
     return loanSimulationResponse;
   }
 

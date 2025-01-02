@@ -2,7 +2,7 @@ package com.example.credit.simulator.interfaces.controller;
 
 import com.example.credit.simulator.interfaces.json.request.LoanSimulationRequest;
 import com.example.credit.simulator.interfaces.json.response.LoanSimulationResponse;
-import com.example.credit.simulator.service.LoanService;
+import com.example.credit.simulator.service.LoanSimulationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class LoanSimulationController {
 
-  private final LoanService loanService;
+  private final LoanSimulationService loanService;
 
   @PostMapping
   public ResponseEntity<LoanSimulationResponse> postLoan(

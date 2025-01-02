@@ -2,7 +2,7 @@ package com.example.credit.simulator.services.impl;
 
 
 import com.example.credit.simulator.interfaces.json.request.LoanSimulationRequest;
-import com.example.credit.simulator.service.impl.LoanServiceImpl;
+import com.example.credit.simulator.service.impl.LoanSimulationServiceImpl;
 import java.time.LocalDate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 public class LoanServiceImplTests {
 
   @InjectMocks
-  private LoanServiceImpl loanService;
+  private LoanSimulationServiceImpl loanService;
 
   @Test
   @DisplayName("Simulation loan with success")
